@@ -27,9 +27,13 @@ sudo insmod logger.ko
 2. Run a shell command to test it
 
 ```sh
-echo "This is just a test" > /dev/logger
-dmesg | grep "This is just a test"
-journalctl -b | grep "This is just a test"
+vagrant@ubuntu-focal:/vagrant$ echo "This is just a test" > /dev/logger
+vagrant@ubuntu-focal:/vagrant$
+vagrant@ubuntu-focal:/vagrant$ dmesg | grep "This is just a test"
+[   55.750168] bash[1289]: This is just a test
+vagrant@ubuntu-focal:/vagrant$
+vagrant@ubuntu-focal:/vagrant$ journalctl -b | grep "This is just a test"
+Mar 04 02:13:46 ubuntu-focal bash[1289]: This is just a test
 ```
 
 ## Usage in shell script
