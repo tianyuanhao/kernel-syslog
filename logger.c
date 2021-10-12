@@ -161,5 +161,5 @@ module_init(logger_init);
 module_exit(logger_exit);
 
 MODULE_LICENSE("GPL v2");
-MODULE_AUTHOR("Tian Yuanhao <tianyuanhao@aliyun.com>");
+MODULE_AUTHOR("TIAN Yuanhao <tianyuanhao@protonmail.com>");
 MODULE_DESCRIPTION("Kernel logger");
