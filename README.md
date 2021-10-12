@@ -10,6 +10,8 @@ Its log is similar to systemd's journal and can be read by `dmesg` or `journalct
 - You want a logger, but do not want or cannot make any changes to a program.
 - You find it annoying to type `logger` again and again in a shell script.
 
+[Here is a very suitable use case.](https://unix.stackexchange.com/questions/97580/init-syslog-and-stdout-stderr)
+
 ## Why not kmsg or logger
 
 - kmsg could not add a tag
