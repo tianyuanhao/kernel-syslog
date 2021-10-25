@@ -60,14 +60,16 @@ static ssize_t logger_write_iter(struct kiocb *iocb, struct iov_iter *from)
 		memcpy(buffer, &channel->buffer[channel->start],
 		       channel->end - channel->start);
 
-	if (!copy_from_iter_full(&buffer[channel->end], len, from)) {
+	if (!copy_from_iter_full(&buffer[channel->end - channel->start], len,
+				 from)) {
 		kfree(buffer);
 		mutex_unlock(&channel->mutex);
 		return -EFAULT;
 	}
 
 	start = 0;
-	for (end = channel->end; end < channel->end + len; end++) {
+	for (end = channel->end - channel->start;
+	     end < channel->end - channel->start + len; end++) {
 		if (buffer[end] != '\n')
 			continue;
 
